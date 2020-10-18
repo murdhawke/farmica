@@ -2,9 +2,11 @@
 const User = require("../model/User")
 
 //User auth methods
+
+//Register new user
 exports.registerNewUser = async (req, res) => {
     try {
-        let user = await User.find({ email: req.body.email})
+        let user = await User.find({ email: req.body.email}) //Check if the user exists
         if (user.length>=1){
             return res.status(409).json({
                 message: "The email is already in use!"
@@ -24,5 +26,41 @@ exports.registerNewUser = async (req, res) => {
         res.status(400).json({err: err})
     }
 }
-exports.loginUser = async (req,res) => {}
-exports.getUserDetails = async (req,res) => {}
+
+//Login user
+exports.loginUser = async (req, res) => {
+    try {
+      const email = req.body.email;
+      const password = req.body.password;
+      user = await User.findByCredentials(email, password);
+      if (!user) {
+        return res
+          .status(401)
+          .json({ error: "Login failed! Check authentication credentials" });
+      }
+     token = await user.generateAuthToken();
+      res.status(201).json({ user, token });
+    } catch (err) {
+      res.status(400).json({ err: err });
+    }
+  };
+  exports.getUserDetails = async (req, res) => {
+    await res.json(req.userData);
+  };
+
+
+/*{
+"name": "Amos Kosgei",
+"email": "cheruiyotca@gmail.com",
+"mobile": "712345678",
+"location": "Nairobi,Kenya",
+"password": "amosamos"
+}
+*/
+/*{
+    "name": "test account",
+    "email": "test@gmail.com",
+    "mobile": "120456",
+    "location": "Nairobi,Kenya",
+    "password": "amosamos"
+}*/

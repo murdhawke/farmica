@@ -6,24 +6,19 @@ const jwt = require ("jsonwebtoken")
 //Define the structure of the mongodb user
 const userSchema = mongoose.Schema({
     name:  {
-            type: String,
-            required: [true, "Please enter your name"]
+            type: String
     }, 
     email:  {
-            type: String,
-            required: [true, "Please enter your email address"]
+            type: String
     },
     mobile: {
-            type: Number,
-            required: [true, "Please enter your mobile number starting with 7XXXXXXX"]
+            type: Number
     },
     location: {
-            type: String,
-            required: [true, "Where are you located?"]
+            type: String
     },
     password: {
-            type: String,
-            required: [true, "Set a strong password"]
+            type: String
     },
     tokens: [
         {
