@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="jobs">
         <p>This is the jobs page</p>
     </div>
 </template>
