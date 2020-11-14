@@ -1,23 +1,13 @@
 <template>
-  <div id="app">
-    <Navbar></Navbar>
-  </div>
+    <div id="app">
+        <jumbotron>
+          <h3>This is a test</h3>
+        </jumbotron>
+    </div>
 </template>
 
 <script>
-import Navbar from '../src/components/Navbar'
 export default {
-  components: {
-    Navbar
-  },
-  data () {
-    return {
-      
-    }
-  }
+    
 }
 </script>
-
-<style>
-
-</style>

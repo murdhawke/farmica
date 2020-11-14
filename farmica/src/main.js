@@ -2,19 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { BootstrapVue } from 'bootstrap-vue'
 
+//Additionally, import Bootstrap css
+import 'bootstrap'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-// Install BootstrapVue
-Vue.use(BootstrapVue)
-
-
-
-
-//Additionally, import Bootstrap-vue css
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false
 
